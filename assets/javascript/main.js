@@ -16,7 +16,7 @@ var cityArray = [];
 $('#submit').click(function (event) {
     event.preventDefault();
 
-    var city = $('#city').val().trim();
+    var city = $('#city').val().trim().toLowerCase();
 
     cityArray.push(city);
     console.log("City Array: " + cityArray);
@@ -26,10 +26,10 @@ $('#submit').click(function (event) {
     }
 
     var newCity = {
-        city: city.toLowerCase(),
+        city: city,
     };
     cityData.ref().push(newCity);
-    cityData.ref().set(array);
+    cityData.ref().push(array);
     alert("You searched: " + city);
 })
 
