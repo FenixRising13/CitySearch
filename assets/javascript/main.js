@@ -21,10 +21,15 @@ $('#submit').click(function (event) {
     cityArray.push(city);
     console.log("City Array: " + cityArray);
 
+    var array = {
+        array: cityArray,
+    }
+
     var newCity = {
         city: city.toLowerCase(),
     };
     cityData.ref().push(newCity);
+    cityData.ref().set(array);
     alert("You searched: " + city);
 })
 
